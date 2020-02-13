@@ -50,8 +50,6 @@ class Fee:
 
     def inputFeeDetails(self):
         self.phone = input("Enter Customer Phone: ")
-        # self.month = input("Enter Month: ")
-        # self.year = input("Enter Year: ")
         self.month = int(input("Enter Month: "))
         self.year = int(input("Enter Year: "))
 
@@ -76,8 +74,14 @@ class Fee:
         else:
 
             print(">> Fee Not Paid for {} months".format(difference))
-            for i in range(difference):
-                self.amount += self.amount*(.10)
+            amount = 0
+            amount += self.amount
+            i = 1
+            while i < difference:
+                fine = amount*0.1
+                amount += fine
+                self.amount += amount
+                i += 1
             print(">> Fee to paid  after fine implemented on {} month {} year  : \u20b9 {}".format(self.month,self.year,self.amount))
 
 
